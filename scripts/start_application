@@ -5,7 +5,7 @@
 
 set -e
 
-CATALINA_HOME='/usr/share/tomcat7'
+CATALINA_HOME='/usr/share/tomcat'
 DEPLOY_TO_ROOT='true'
 #CONTEXT_PATH='##CONTEXT_PATH##'
 SERVER_HTTP_PORT='80'
@@ -35,5 +35,4 @@ cp $WAR_STAGED_LOCATION $CATALINA_HOME/webapps/$CONTEXT_PATH.war
 cp $CATALINA_HOME/conf/server.xml $CATALINA_HOME/conf/server.xml.bak
 xsltproc $HTTP_PORT_CONFIG_XSL_LOCATION $CATALINA_HOME/conf/server.xml.bak > $CATALINA_HOME/conf/server.xml
 
-cd /etc/init.d
-tomcat7 start
+sudo systemctl start tomcat
